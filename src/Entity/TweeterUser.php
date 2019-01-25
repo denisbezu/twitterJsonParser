@@ -29,7 +29,7 @@ class TweeterUser
     private $screen_name;
 
     /**
-     * @ORM\Column(type="string", length=100, nullable=true)
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $followers_count;
 
@@ -93,12 +93,12 @@ class TweeterUser
         return $this;
     }
 
-    public function getFollowersCount(): ?string
+    public function getFollowersCount(): ?int
     {
         return $this->followers_count;
     }
 
-    public function setFollowersCount(?string $followers_count): self
+    public function setFollowersCount(?int $followers_count): self
     {
         $this->followers_count = $followers_count;
 

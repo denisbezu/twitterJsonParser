@@ -88,6 +88,11 @@ class Tweet
      */
     private $oid;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Language", inversedBy="tweets")
+     */
+    private $language;
+
     public function __construct()
     {
         $this->hashtags = new ArrayCollection();
@@ -321,6 +326,18 @@ class Tweet
     public function setOid(string $oid): self
     {
         $this->oid = $oid;
+
+        return $this;
+    }
+
+    public function getLanguage(): ?Language
+    {
+        return $this->language;
+    }
+
+    public function setLanguage(?Language $language): self
+    {
+        $this->language = $language;
 
         return $this;
     }

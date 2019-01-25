@@ -13,10 +13,11 @@ class ParserController extends AbstractController
      * @Route("/parser", name="parser")
      * @param TweetParser $parser
      * @return \Symfony\Component\HttpFoundation\Response
+     * @throws \Exception
      */
     public function index(TweetParser $parser)
     {
-        $parser->parseTweets();
+        $parser->parseTweets(__DIR__ . '/../Data/ImageDataset.TwitterFDL2015.json');
         return $this->render('parser/index.html.twig', [
             'controller_name' => 'ParserController',
         ]);
